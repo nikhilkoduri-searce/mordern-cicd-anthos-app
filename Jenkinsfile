@@ -17,16 +17,16 @@ pipeline {
 
     stage('hydrate-manifests-stg') {
       steps {
+          sh 'ssh-add /home/nikhil_koduri/acm-demo'
           sh 'ls -l'
           sh 'mkdir -p hydrated-manifests/'
-          sh 'whoami'
           sh 'kustomize build k8s/stg/ -o hydrated-manifests/stg.yaml'
         }
     }
 
     stage('hydrate-manifests-prod') {
       steps {
-          sh 'kustomize build k8s/prod -o hydrated-manifests/prod.yaml'
+          sh 'kustomize build k8s/prod/ -o hydrated-manifests/prod.yaml'
         }
     }
 
