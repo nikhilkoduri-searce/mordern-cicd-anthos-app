@@ -17,7 +17,7 @@ kind: Config
 # Defaults are configured for local dev
 build:
   artifacts:
-  - image: app
+  - image: gcr.io/searce-anthos-lab/anthos-app
 deploy:
   kustomize:
     paths:

@@ -13,7 +13,7 @@
 # limitations under the License.
 
 bases:
-- https://GITLAB_HOSTNAME/platform-admins/shared-kustomize-bases//golang?ref=master
+- git@github.com:nikhilkoduri-searce/shared-cicd.git
 patches:
 - deployment.yaml
 commonLabels:
