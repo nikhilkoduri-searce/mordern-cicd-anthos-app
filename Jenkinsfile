@@ -11,12 +11,13 @@ pipeline {
     stage('set PATH env') {
       steps {
         sh 'export KUSTOMIZATION_PATH_STG=./k8s/stg'
-        sh 'export KUSTOMIZATION_PATH_STG=./k8s/prod'
+        sh 'export KUSTOMIZATION_PATH_PROD=./k8s/prod'
       }
     }
 
     stage('hydrate-manifests-stg') {
       steps {
+          sh 'ls -l'
           sh 'mkdir -p hydrated-manifests/'
           sh 'cd ${KUSTOMIZATION_PATH_STG}'
           sh 'kustomize build . -o ../../hydrated-manifests/stg.yaml'
