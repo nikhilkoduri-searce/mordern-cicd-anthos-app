@@ -19,7 +19,7 @@ pipeline {
       steps {
           sh 'ls -l'
           sh 'mkdir -p hydrated-manifests/'
-          sh 'cd ${KUSTOMIZATION_PATH_STG}'
+          sh 'cd ./k8s/stg'
           sh 'kustomize build . -o ../../hydrated-manifests/stg.yaml'
           sh 'cd ../../'
         }
@@ -27,7 +27,7 @@ pipeline {
 
     stage('hydrate-manifests-prod') {
       steps {
-          sh 'cd ${KUSTOMIZATION_PATH_PROD}'
+          sh 'cd ./k8s/prod'
           sh 'kustomize build . -o ../../hydrated-manifests/prod.yaml'
           sh 'cd ../../'
         }
