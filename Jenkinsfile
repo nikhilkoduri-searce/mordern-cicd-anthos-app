@@ -10,6 +10,7 @@ pipeline {
 
     stage('set PATH env') {
       steps {
+        sh 'eval "$(ssh-agent -s)"'
         sh 'ssh-add ~/anthos/anthos-aws/acm-demo'
       }
     }
