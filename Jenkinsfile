@@ -10,8 +10,8 @@ pipeline {
 
     stage('set PATH env') {
       steps {
-        sh 'eval "$(ssh-agent -s)"'
-        sh 'ssh-add ~/anthos/anthos-aws/acm-demo'
+        sh 'export KUSTOMIZATION_PATH_STG=./k8s/stg'
+        sh 'export KUSTOMIZATION_PATH_PROD=./k8s/prod'
       }
     }
 
