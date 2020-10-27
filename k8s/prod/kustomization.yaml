@@ -13,7 +13,7 @@
 # limitations under the License.
 
 bases:
-- git@github.com:nikhilkoduri-searce/shared-cicd.git
+- https://github.com/nikhilkoduri-searce/shared-cicd.git
 patches:
 - deployment.yaml
 namePrefix: "golang-template-"
