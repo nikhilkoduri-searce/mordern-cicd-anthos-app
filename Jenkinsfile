@@ -37,8 +37,7 @@ pipeline {
           sh 'git clone git@github.com:nikhilkoduri-searce/modern-cicd-anthos-env.git'
           sh 'cd modern-cicd-anthos-env'
           sh 'cp ../hydrated-manifests/stg.yaml stg.yaml'
-          sh 'cp ../hydrated-manifests/stg.yaml stg.yaml'
-          cp ../hydrated-manifests/prod.yaml prod.yaml
+          sh 'cp ../hydrated-manifests/prod.yaml prod.yaml'
           sh 'git add stg.yaml prod.yaml'
           sh 'git commit -m "updates"'
           sh 'git push origin staging'
