@@ -21,6 +21,7 @@ pipeline {
           sh 'mkdir -p hydrated-manifests/'
           sh 'whoami'
           sh 'cd ./k8s/stg'
+          sh 'ls -l'
           sh 'kustomize build . -o ../../hydrated-manifests/stg.yaml'
           sh 'cd ../../'
         }
