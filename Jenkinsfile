@@ -17,8 +17,7 @@ pipeline {
 
     stage('hydrate-manifests-stg') {
       steps {
-          sh 'eval "$(ssh-agent -s)"'
-          sh 'ssh-add /home/nikhil_koduri/acm-demo'
+          sh 'eval $(ssh-agent -s) && ssh-add /home/nikhil_koduri/acm-demo'
           sh 'mkdir -p hydrated-manifests/'
           sh 'kustomize build k8s/stg/ -o hydrated-manifests/stg.yaml'
         }
