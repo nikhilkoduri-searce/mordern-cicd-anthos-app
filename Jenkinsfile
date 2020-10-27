@@ -20,18 +20,13 @@ pipeline {
           sh 'ls -l'
           sh 'mkdir -p hydrated-manifests/'
           sh 'whoami'
-          sh 'cd ./k8s/stg'
-          sh 'ls -l'
-          sh 'kustomize build . -o ../../hydrated-manifests/stg.yaml'
-          sh 'cd ../../'
+          sh 'kustomize build k8s/stg/ -o hydrated-manifests/stg.yaml'
         }
     }
 
     stage('hydrate-manifests-prod') {
       steps {
-          sh 'cd ./k8s/prod'
-          sh 'kustomize build . -o ../../hydrated-manifests/prod.yaml'
-          sh 'cd ../../'
+          sh 'kustomize build k8s/prod -o hydrated-manifests/prod.yaml'
         }
     }
 
